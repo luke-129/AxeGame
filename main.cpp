@@ -2,15 +2,15 @@
 
 int main()
 {
-   int width = 350;
-   int height = 350;
+    int height = 350;
+    int width = 350;
+    InitWindow(width, height, "AxeGame");
 
-   InitWindow(width, height, "AxeGame");
-
-   while (true)
-   {
+    while (true)
+    {
         BeginDrawing();
         ClearBackground(RED);
         EndDrawing();
-   } 
+    }
 }
+
