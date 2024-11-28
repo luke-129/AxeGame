@@ -21,11 +21,11 @@ int main()
         // Game logic begins
         DrawCircle(circle_center_x, circle_center_y, circle_radius, BLUE);
         
-        if(IsKeyDown(KEY_D))
+        if(IsKeyDown(KEY_D) && circle_center_x < window_width)
         {
            circle_center_x += 5; 
         }
-        if(IsKeyDown(KEY_A))
+        if(IsKeyDown(KEY_A) && circle_center_x > 0)
         {
             circle_center_x -= 5;
         }
