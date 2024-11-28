@@ -3,13 +3,21 @@ void MoveAxe(float &circle_pos_x, int window_width);
 int main()
 {
     // Window dimensions
-    int window_height = 350;
-    int window_width = 350;
+    int window_height = 500;
+    int window_width = 600;
     InitWindow(window_width, window_height, "AxeGame");
     // Circle Coordinates
     int circle_center_x = window_width / 2;
     int circle_center_y = window_height / 2;
     float circle_radius = 50.f;
+
+
+    // axe coordinates
+
+    int axe_x{window_width / 2};
+    int axe_y{0};
+
+    int direction{10};
 
     SetTargetFPS(60);
 
@@ -20,6 +28,7 @@ int main()
 
         // Game logic begins
         DrawCircle(circle_center_x, circle_center_y, circle_radius, BLUE);
+        DrawRectangle(axe_x, axe_y, 50, 50, BLACK );
         
         if(IsKeyDown(KEY_D) && circle_center_x < window_width)
         {
@@ -30,24 +39,16 @@ int main()
             circle_center_x -= 5;
         }
 
-        //MoveAxe(circle_center_x, window_width);
+        // move axe
+        
+        axe_y += direction;
+        if(axe_y > window_height || axe_y < 0)
+        {
+            direction = -direction;
+        }
 
         //Game logic ends
         EndDrawing();
     }
 }
 
-void MoveAxe(float &circle_pos_x, int window_width)
-{
-    if (circle_pos_x > 0)
-    {
-        circle_pos_x -= 0.1;
-       // return circle_pos_x;
-    }
-
-    else
-    {
-        circle_pos_x = window_width + 50;
-        //return circle_pos_x;
-    }
-}
